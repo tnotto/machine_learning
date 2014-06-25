@@ -1,6 +1,6 @@
 clear all
-row_import_count = 7050;
-downscale = 4;
+row_import_count = 50;
+downscale = 3;
 % zoom_width = 20;
 
 [left_eye_center_x,left_eye_center_y,right_eye_center_x,right_eye_center_y,...
