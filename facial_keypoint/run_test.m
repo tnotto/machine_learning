@@ -1,6 +1,6 @@
 clear all
 test_file = 'test.csv';
-downscale = 4;
+downscale = 3;
 % zoom_width = 20;
 
 [ImageId,test_image] = import_test(test_file);
@@ -10,7 +10,7 @@ downsized_image = zeros(length(ImageId)-1, (96/downscale)^2);
 % rough_point = zeros(30, length(ImageId)-1);
 % cropped_center = zeros(length(ImageId)-1, zoom_width^2, 15);
 results = zeros(30, length(ImageId)-1);
-for i = 2:(length(ImageId));
+parfor i = 2:(length(ImageId));
     image_data(i-1,:) = str2num(cell2mat(test_image(i)));
     original_plot_image = reshape(image_data(i-1,:),96, 96);
     plot_image = imresize(original_plot_image, 1/downscale, 'bicubic');
@@ -18,7 +18,7 @@ for i = 2:(length(ImageId));
 %     plot_image = downsample(plot_image, downscale);
 %     plot_image = downsample(plot_image', downscale);
     downsized_image(i-1,:) = reshape(plot_image, 1, (96/downscale)^2); 
-    results(:,i-1) = trained_initial_nn_resized(downsized_image(i-1,:)');
+    results(:,i-1) = trained_nn_3factor(downsized_image(i-1,:)');
     
 %     for j = 1:15;
 %         xmin = (round(rough_point(2*j-1,i-1))-10);

@@ -25,7 +25,7 @@ def list_to_submission():
     with open('original_data/IdLookupTable.csv', 'r') as readfile:
         data = csv.reader(readfile)
         i = 0
-        with open('submission_4factor_2pass_10hidden.csv', 'w') as writefile:
+        with open('submission_3factor.csv', 'w') as writefile:
             rowwriter = csv.writer(writefile, delimiter=',')
             for row in data:
                 if i > 0:
