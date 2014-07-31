@@ -2,4 +2,6 @@
 *.swp
 *.csv
 *.png
+*.zip
 IMAGES_RAW.mat
+*.DS_Store
